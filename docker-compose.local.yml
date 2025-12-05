@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  wordpress:
+    build: .
+    container_name: waytogo-wordpress
+    restart: unless-stopped
+    ports:
+      - "${WORDPRESS_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST:-db:3306}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wordpress}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-wordpress_password}
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./wp-config.php:/var/www/html/wp-config.php
+    depends_on:
+      - db
+    networks:
+      - waytogo-network
+
+  db:
+    image: mysql:5.7
+    container_name: waytogo-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-wordpress}
+      MYSQL_USER: ${DB_USER:-wordpress}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-wordpress_password}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./APP-DATA.SQL:/docker-entrypoint-initdb.d/APP-DATA.SQL
+    networks:
+      - waytogo-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: waytogo-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "${PHPMYADMIN_PORT:-8081}:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password}
+    depends_on:
+      - db
+    networks:
+      - waytogo-network
+
+volumes:
+  db_data:
+
+networks:
+  waytogo-network:
+    driver: bridge
+
