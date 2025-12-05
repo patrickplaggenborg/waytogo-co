@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Testimonials shortcode style - begin
+   ========================================================================== */
+
+.edgtf-testimonials-holder {
+    @include edgtfRelativeHolderLayout();
+
+    .edgtf-testimonials,
+    .edgtf-testimonial-content,
+    .edgtf-testimonial-text-holder {
+        @include edgtfRelativeHolderLayout();
+        text-align: left;
+    }
+
+    .edgtf-testimonial-title,
+    .edgtf-testimonial-text,
+    .edgtf-testimonial-author{
+        color: #000;
+    }
+
+    .edgtf-testimonial-text-holder .edgtf-testimonial-title.entry-title{
+        text-align: left;
+        padding-left: 3%;
+
+        @include laptop-landscape-large{
+            padding-left: 0;
+        }
+    }
+
+    .edgtf-testimonials{
+        .owl-dots{
+            background-color: transparent;
+            padding: 0 220px 99px 0;
+            text-align: right;
+            margin-top: 0;
+
+            @include laptop-landscape-large{
+                padding: 0 90px 108px 0;
+            }
+
+            @include ipad-landscape{
+                padding: 0 34px 80px;
+            }
+        }
+
+    }
+
+    .edgtf-testimonials-author-name{
+        @include edgtfH3();
+        font-family: $default-heading-font;
+    }
+
+    .edgtf-testimonial-text{
+        text-align: left;
+        padding: 3px 15% 0 3%;
+        font-size: 19px;
+        line-height: 35px;
+
+        @include laptop-landscape-large{
+            padding: 3px 7% 0 0;
+        }
+
+        @include ipad-landscape{
+            padding: 3px 0 0 0;
+        }
+    }
+
+    .edgtf-testimonial-image {
+
+        img {
+            width: auto !important;
+            border-radius: 5em;
+        }
+    }
+
+}
+/* ==========================================================================
+   Testimonials shortcode style - end
+   ========================================================================== */

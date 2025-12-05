@@ -1,0 +1,29 @@
+/*
+Theme Name: Galatia Child
+Theme URI: http://galatia.edge-themes.com
+Description: A child theme of Galatia
+Author: Edge Themes
+Author URI: http://themeforest.net/user/edge-themes
+Version: 1.0.0
+Text Domain: galatia
+Template: galatia
+*/
+
+
+@font-face {
+  font-family: "Gordita";
+  src: url('fonts/Gordita-Bold/font.woff2') format('woff2'), url('fonts/Gordita-Bold/font.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Gordita";
+  src: url('fonts/Gordita-Black/font.woff2') format('woff2'), url('fonts/Gordita-Black/font.woff') format('woff');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Gordita";
+  src: url('fonts/Gordita-Ultra/font.woff2') format('woff2'), url('fonts/Gordita-Ultra/font.woff') format('woff');
+  font-weight: 900;
+}

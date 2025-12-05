@@ -1,0 +1,558 @@
+/* ==========================================================================
+   Portfolio shortcode style - begin
+   ========================================================================== */
+
+.edgtf-portfolio-list-holder {
+    @include edgtfRelativeHolderLayout();
+
+	/***** Article Global Style - begin *****/
+
+    article {
+
+	    .touch & {
+		    cursor: pointer;
+	    }
+
+	    .edgtf-pl-item-inner {
+		    @include edgtfRelativeHolderLayout();
+	    }
+	    
+	    .edgtf-pli-image {
+		    @include edgtfRelativeHolderLayout();
+		    
+		    img {
+			    display: block;
+			    width: 100%;
+		    }
+	    }
+
+	    .edgtf-pli-link {
+		    @include edgtfAbsoluteHolderLayout();
+	    }
+
+	    .edgtf-pli-text-wrapper {
+	        @include edgtfTableLayout();
+	    }
+
+	    .edgtf-pli-text {
+		    @include edgtfTableCellLayout();
+
+		    .edgtf-pli-title {
+				margin: 0;
+		    }
+
+		    .edgtf-pli-category-holder {
+			    position: relative;
+			    display: block;
+			    margin: 3px 0 0;
+
+			    a {
+				    position: relative;
+				    display: inline-block;
+				    vertical-align: middle;
+				    padding: 0 6px 0 0;
+				    margin: 0 3px 0 0;
+				    z-index: 8;
+				    
+				    &:after {
+					    position: absolute;
+					    top: 0;
+					    right: -4px;
+					    content: '/';
+					    color: inherit;
+					    font-size: 12px;
+					    line-height: inherit;
+				    }
+
+				    &:last-child {
+					    margin: 0;
+					    padding: 0;
+					    
+					    &:after {
+						    display: none;
+					    }
+				    }
+			    }
+		    }
+
+		    .edgtf-pli-excerpt {
+			    margin: 3px 0 0;
+		    }
+	    }
+    }
+
+	/***** Article Global Style - end *****/
+
+	/*** Justified gallery start styles ***/
+
+	&.edgtf-pl-justified-gallery {
+
+		opacity: 0;
+		height: auto!important;
+		margin-bottom: 0;
+
+		.edgtf-pl-inner {
+			margin: 0 !important;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+
+		article {
+			position: absolute;
+			display: inline-block;
+			overflow: hidden;
+			padding: 0 !important;
+			margin: 0 !important;
+			width: auto;
+
+			.edgtf-pl-item-inner,
+			.edgtf-pl-inner-content,
+			.edgtf-pli-image{
+				height: 100%;
+
+				img{
+					height: 100%;
+				}
+			}
+
+			.edgtf-item-image-holder {
+				height: 100%;
+				overflow: hidden;
+			}
+
+			.edgtf-pli-image {
+				height: 100%;
+				display: block;
+				width: auto;
+				overflow: hidden;
+				img {
+					width: 100%;
+					vertical-align: middle;
+					max-height: 100%;
+				}
+			}
+		}
+
+		&.edgtf-additional-row-spacing{
+			article{
+
+				.edgtf-pl-item-inner{
+
+					padding: 35px 0;
+					box-sizing: border-box;
+
+					.edgtf-pl-inner-content{
+						position: relative;
+					}
+
+					@include phone-landscape{
+						padding: 0;
+					}
+				}
+			}
+		}
+
+		@include phone-landscape{
+			.edgtf-pl-inner{
+				display: block;
+				height: auto !important;
+
+				article{
+					display: block;
+					position: relative !important;
+					top: 0 !important;
+					left: 0 !important;
+					height: auto !important;
+					margin: 0 0 30px !important;
+				}
+			}
+		}
+
+	}
+	
+	/***** Specific Global Style - begin *****/
+	
+	&.edgtf-pl-has-shadow {
+		
+		article {
+			
+			.edgtf-pli-image {
+				box-shadow: $default-box-shadow;
+			}
+		}
+	}
+	
+	&.edgtf-pl-has-filter {
+		
+		.edgtf-pl-inner {
+			overflow: hidden;
+		}
+	}
+	
+	&.edgtf-pl-no-content {
+		
+		.edgtf-pli-text-holder {
+			display: none;
+		}
+	}
+	/***** Specific Global Style - end *****/
+	
+	&.edgtf-pl-masonry {
+
+        &.edgtf-fixed-masonry-items {
+	        
+            article {
+	            
+                .edgtf-pl-item-inner,
+                .edgtf-pli-image {
+		            height: 100%;
+	            }
+            }
+        }
+	}
+
+	/***** Portfolio Types - end *****/
+
+	/***** Additional Features - begin *****/
+
+	&.edgtf-pl-has-animation {
+
+		article {
+			opacity: 0;
+			transform: translateY(80px);
+			transition: opacity .8s cubic-bezier(0.34, 0.52, 0.57, 1.04), transform .8s cubic-bezier(0.34, 0.52, 0.57, 1.04);
+
+			&.edgtf-item-show {
+				opacity: 1;
+				transform: translateY(0);
+
+				&.edgtf-item-shown {
+					transition: none;
+				}
+			}
+			
+			.touch & {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+
+	/***** Additional Features - end *****/
+
+	/* Lowered even columns */
+
+	&.edgtf-pl-with-advanced-hover{
+		article.edgtf-pl-item{
+
+			.edgtf-pl-item-inner{
+				&:hover{
+					.edgtf-pli-title{
+						a{
+							color: $first-main-color;
+						}
+					}
+				}
+			}
+
+			.edgtf-pli-link{
+				display: none;
+			}
+
+			.edgtf-pli-image{
+
+				&.edgtf-initialized {
+
+					img {
+						opacity: 0;
+						visibility: hidden;
+
+						.touch & {
+							opacity: 1;
+							visibility: visible;
+						}
+					}
+
+					canvas {
+						@include edgtfAbsoluteHolderLayout();
+						touch-action: auto !important;
+
+						.touch & {
+							display: none;
+						}
+					}
+
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Portfolio shortcode style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Portfolio filter style - begin
+   ========================================================================== */
+
+.edgtf-pl-filter-holder {
+    @include edgtfRelativeHolderLayout();
+    padding: 0 0 30px 116px;
+    text-align: left;
+	box-sizing: border-box;
+
+	@include laptop-landscape-large{
+		padding: 0 0 30px 55px;
+	}
+
+	@include laptop-landscape-large{
+		padding: 0 0 30px 45px;
+	}
+
+	@include phone-landscape{
+		padding-left: 0;
+	}
+
+    ul {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0 10px;
+	        padding: 0 44px 0 0;
+            cursor: pointer;
+	        
+	        @include laptop-landscape-large {
+		        padding: 0 32px 0 0;
+	        }
+	
+	        @include ipad-landscape {
+		        padding: 0 20px 0 0;
+	        }
+
+
+            span {
+				@include edgtfH6Aux();
+            }
+
+            &.edgtf-pl-current,
+            &:hover {
+
+                span {
+                    color: $first-main-color;
+                }
+            }
+        }
+    }
+}
+/* ==========================================================================
+   Portfolio filter style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Portfolio standard pagination style - begin
+   ========================================================================== */
+
+.edgtf-portfolio-list-holder {
+	
+	&.edgtf-pl-pag-standard {
+		
+		.edgtf-pl-inner {
+			opacity: 1;
+			transition: opacity .2s ease-out;
+		}
+		
+		&.edgtf-pl-pag-standard-animate {
+			
+			.edgtf-pl-inner {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+.edgtf-pl-standard-pagination {
+	@include edgtfStandardPaginationStyle('shortcode');
+}
+/* ==========================================================================
+   Portfolio standard pagination style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Portfolio load more pagination style - begin
+   ========================================================================== */
+
+.edgtf-pl-load-more-holder {
+	@include edgtfRelativeHolderLayout();
+
+    .edgtf-pl-load-more {
+	    margin: 60px 0 0;
+	    text-align: center;
+
+		.archive.tax-portfolio-category &{
+			margin: 96px 0 0;
+		}
+    }
+
+	&.edgtf-hidden{
+		opacity: 0;
+		visibility: hidden;
+	}
+
+}
+/* ==========================================================================
+   Portfolio load more pagination style - end
+   ========================================================================== */
+
+/* ==========================================================================
+   Portfolio loading element style - begin
+   ========================================================================== */
+
+.edgtf-pl-loading {
+	position: relative;
+	display: none;
+	width: 100%;
+	margin: 60px 0 0;
+	color: $default-heading-color;
+	text-align: center;
+
+	.edgtf-pl-loading-text{
+		font-family: $additional-heading-font;
+		font-size: 15px;
+		line-height: 2em;
+		letter-spacing: .1em;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+	&.edgtf-filter-trigger {
+		position: absolute;
+		top: 250px;
+		left: 0;
+	}
+	
+    &.edgtf-standard-pag-trigger {
+		position: absolute;
+		top: 50px;
+		left: 0;
+	
+	    .edgtf-pl-has-filter & {
+		    top: 150px;
+	    }
+    }
+
+	&.edgtf-showing {
+		display: block;
+	}
+
+	.edgtf-pl-loading-bounce1 {
+		animation-delay: -0.32s;
+	}
+
+	.edgtf-pl-loading-bounce2 {
+		animation-delay: -0.16s;
+	}
+}
+
+@-webkit-keyframes sk-bouncedelay {
+	0%, 80%, 100% {
+		-webkit-transform: scale(0);
+	}
+	40% {
+		-webkit-transform: scale(1.0);
+	}
+}
+
+@-moz-keyframes sk-bouncedelay {
+	0%, 80%, 100% {
+		-moz-transform: scale(0);
+	}
+	40% {
+		-moz-transform: scale(1.0);
+	}
+}
+
+@keyframes sk-bouncedelay {
+	0%, 80%, 100% {
+		transform: scale(0);
+	}
+	40% {
+		transform: scale(1.0);
+	}
+}
+
+
+/* Disable Custom Paddings For Responsive*/
+
+.edgtf-portfolio-list-holder{
+	&.edgtf-pl-masonry{
+
+		@include ipad-portrait {
+
+			//important will be included always since custom padding is added inline to article
+
+			&.edgtf-huge-space .edgtf-outer-space .edgtf-pl-item-with-custom-padding {
+				padding: 0 25px !important;
+			}
+
+			&.edgtf-large-space .edgtf-outer-space .edgtf-pl-item-with-custom-padding {
+				padding: 0 25px !important;
+			}
+
+			&.edgtf-medium-space .edgtf-outer-space .edgtf-pl-item-with-custom-padding {
+				padding: 0 20px !important;
+			}
+
+			&.edgtf-normal-space .edgtf-outer-space .edgtf-pl-item-with-custom-padding {
+				padding: 0 15px !important;
+			}
+
+			&.edgtf-small-space .edgtf-outer-space .edgtf-pl-item-with-custom-padding {
+				padding: 0 10px !important;
+			}
+
+			&.edgtf-tiny-space .edgtf-outer-space .edgtf-pl-item-with-custom-padding {
+				padding: 0 5px !important;
+			}
+
+			&.edgtf-no-space .edgtf-outer-space .edgtf-pl-item-with-custom-padding {
+				padding: 0 0 !important;
+			}
+		}
+
+	}
+
+	&.edgtf-grid-list.edgtf-three-columns{
+		.edgtf-pl-inner{
+			.edgtf-pl-item{
+				@include ipad-landscape{
+					width: 50%;
+					clear: none;
+
+					&:nth-child(2n+1){
+						clear: both;
+					}
+				}
+
+				@include phone-landscape{
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+/* ==========================================================================
+   Portfolio loading element style - end
+   ========================================================================== */

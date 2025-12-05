@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Counter shortcode style - begin
+   ========================================================================== */
+
+.edgtf-counter-holder {
+    @include edgtfRelativeHolderLayout();
+    opacity: 0;
+	transition: opacity 0.2s ease-in;
+	
+	.edgtf-counter-inner {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+    .edgtf-counter {
+	    height: 1em;
+	    display: inline-block !important;
+	    vertical-align: middle;
+	    color: $default-heading-color;
+	    line-height: 1em;
+	    font-weight: 600;
+	    overflow: hidden;
+		position: relative;
+		font-size: 60px;
+		font-family: $default-heading-font;
+    }
+
+    .edgtf-counter-title {
+	    margin: 5px 0 0;
+		text-align: center;
+    }
+
+    .edgtf-counter-text {
+	    margin: 5px 0 0;
+		text-align: center;
+    }
+}
+/* ==========================================================================
+   Counter shortcode style - end
+   ========================================================================== */

@@ -1,0 +1,248 @@
+/* ==========================================================================
+   Tabs shortcode style - begin
+   ========================================================================== */
+
+.edgtf-tabs {
+	@include edgtfRelativeHolderLayout();
+	
+	.edgtf-tabs-nav {
+		@include edgtfRelativeHolderLayout();
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		li {
+			float: left;
+			margin: 0;
+			padding: 0;
+			transition: border 0.2s ease;
+			
+			a {
+				position: relative;
+				display: inline-block;
+				vertical-align: middle;
+				box-sizing: border-box;
+				transition: color .2s ease-out, background-color .2s ease-out, border-color .2s ease-out;
+				padding: 0;
+				font-size: 15px;
+				line-height: 1.46em;
+				font-weight: 700;
+				letter-spacing: .1em;
+				color: $default-heading-color;
+				background-color: transparent;
+				font-family: $additional-heading-font;
+				text-transform: uppercase;
+			}
+
+			&.ui-state-active,
+			&.ui-state-hover{
+
+				a{
+					color: $first-main-color;
+				}
+
+				@include ipad-portrait{
+					border-bottom: none;
+
+					a{
+						color: $first-main-color;
+					}
+				}
+
+
+			}
+		}
+	}
+	
+	.edgtf-tab-container {
+        box-sizing: border-box;
+		@include edgtfRelativeHolderLayout();
+		
+		p {
+			margin: 0;
+		}
+	}
+	
+	&.edgtf-tabs-standard {
+		
+		.edgtf-tabs-nav {
+			
+			li {
+				
+				&.ui-state-active a,
+				&.ui-state-hover a {
+					background-color: transparent;
+				}
+			}
+		}
+		
+		.edgtf-tab-container {
+			margin: 25px 0 0;
+		}
+	}
+	
+	&.edgtf-tabs-boxed {
+
+		box-sizing: border-box;
+		padding: 0 140px;
+
+		.edgtf-tabs-nav {
+			
+			li {
+				margin-right: 61px;
+				
+				a {
+					position: relative;
+					display: inline-block;
+					vertical-align: middle;
+					box-sizing: border-box;
+					transition: color .2s ease-out, background-color .2s ease-out, border-color .2s ease-out;
+					padding: 0;
+					font-size: 15px;
+					line-height: 1.46em;
+					font-weight: 700;
+					letter-spacing: .1em;
+					color: $default-heading-color;
+					background-color: transparent;
+					font-family: $additional-heading-font;
+					text-transform: uppercase;
+				}
+				
+				&.ui-state-active a,
+				&.ui-state-hover a {
+					background-color: transparent;
+				}
+				
+				&:last-child {
+					margin: 0;
+				}
+			}
+		}
+		
+		.edgtf-tab-container {
+			margin: 25px 0 0;
+		}
+	}
+	
+	&.edgtf-tabs-simple {
+		
+		.edgtf-tabs-nav {
+			
+			li {
+				margin: 0 31px 0 0;
+				
+				a {
+					padding: 0;
+					font-size: 18px;
+					line-height: 26px;
+					font-weight: 400;
+					color: #999;
+				}
+				
+				&.ui-state-active a,
+				&.ui-state-hover a {
+					color: $first-main-color;
+				}
+				
+				&:last-child {
+					margin: 0;
+				}
+			}
+		}
+		
+		.edgtf-tab-container {
+			padding: 31px 0;
+		}
+	}
+	
+	&.edgtf-tabs-vertical {
+		display: table;
+		
+		.edgtf-tabs-nav {
+			display: table-cell;
+			vertical-align: top;
+			width: 140px;
+			height: 100%;
+			box-sizing: border-box;
+			
+			li {
+				display: block;
+				float: none;
+				margin: 0 0 24px;
+				
+				a {
+					font-size: 18px;
+					line-height: 26px;
+					font-weight: 400;
+					color: #999;
+				}
+				
+				&.ui-state-active a,
+				&.ui-state-hover a {
+					color: $first-main-color;
+				}
+				
+				&:last-child {
+					margin: 0;
+				}
+			}
+		}
+		
+		.edgtf-tab-container {
+			display: table-cell;
+			vertical-align: top;
+			width: calc(100% - 140px);
+			height: 100%;
+			padding: 0 0 0 45px;
+			box-sizing: border-box;
+		}
+	}
+}
+
+.ui-widget-content {
+	padding: 0;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	border: 0;
+	border-radius: 0;
+
+    .ui-widget-header {
+	    font-size: inherit;
+	    line-height: inherit;
+	    font-weight: inherit;
+	    color: initial;
+	    background: none;
+	    border: 0;
+        border-radius: 0;
+    }
+	
+    .ui-tabs-nav {
+	    
+        li {
+	        position: initial;
+	        font-weight: inherit;
+	        color: inherit;
+	        background: initial;
+	        border: 0;
+	        border-radius: 0;
+			margin-right: 61px;
+			padding: 0;
+
+			@include ipad-portrait{
+				margin: 6px 0;
+				padding: 0;
+			}
+        }
+    }
+
+    .ui-widget-content {
+	    color: inherit;
+	    background: none;
+	    border: 0;
+        border-radius: 0;
+    }
+}
+/* ==========================================================================
+   Tabs shortcode style - end
+   ========================================================================== */

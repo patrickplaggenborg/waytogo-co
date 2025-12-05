@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Interactive link showcase shortcode style - begin
+   ========================================================================== */
+
+.edgtf-ils-holder {
+    @include edgtfRelativeHolderLayout();
+    height: 100vh;
+	
+	.admin-bar & {
+		height: calc(100vh - 32px);
+	}
+	
+	&.edgtf-ils-skin-light {
+		
+		.edgtf-ils-item-link {
+			color: #fff;
+		}
+	}
+	
+	.edgtf-ils-image-holder {
+		@include edgtfRelativeHolderLayout();
+		height: 100%;
+		overflow: hidden;
+	}
+	
+	.edgtf-ils-item-image {
+		@include edgtfAbsoluteHolderLayout();
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		opacity: 0;
+		transition: opacity .0s .45s;
+		
+		&.edgtf-active {
+			z-index: 10;
+			opacity: 1;
+			transition: opacity .4s cubic-bezier(0.215, 0.61, 0.355, 1);
+		}
+		
+		img {
+			display: none;
+		}
+	}
+	
+	.edgtf-ils-content-holder {
+		@include edgtfAbsoluteHolderLayout();
+		z-index: 100;
+        width: 48%;
+        left: 63px;
+
+		@include laptop-landscape-large{
+			width: 63.5%;
+		}
+
+		@include laptop-landscape-mac{
+			width: 67.5%;
+		}
+
+		@include laptop-landscape-medium{
+			width: 71.5%;
+		}
+
+		@include ipad-landscape{
+			width: 100%;
+		}
+	}
+	
+	.edgtf-ils-content-inner {
+		@include edgtfTableLayout();
+	}
+	
+	.edgtf-ils-item-content {
+		@include edgtfTableCellLayout();
+		padding: 90px 0;
+		box-sizing: border-box;
+		vertical-align: bottom;
+
+		@include laptop-landscape-large{
+			padding: 90px 46px 90px 0;
+		}
+
+		@include laptop-landscape-mac{
+			padding: 90px 54px 90px 0;
+		}
+
+		@include laptop-landscape-medium{
+			padding: 90px 62px 90px 0;
+		}
+
+		@include ipad-landscape{
+			padding: 90px 124px 90px 0;
+		}
+
+		@include ipad-portrait{
+			padding: 90px 56px 90px 0;
+		}
+
+		@include phone-portrait{
+			padding: 90px 0 90px 12px;
+		}
+	}
+	
+	.edgtf-ils-item-link {
+		position: relative;
+		display: inline-block;
+		padding-right: 7.3%;
+		font-size: 50px;
+		line-height: 1.25em;
+		font-family: $default-heading-font;
+		cursor: default;
+		box-sizing: border-box;
+
+		&.edgtf-ils-item-link-responsive{
+			display: none;
+		}
+
+		span{
+			position: relative;
+			overflow: hidden;
+
+			&:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 4px;
+				height: 1px;
+				width: 100%;
+				background-color: currentColor;
+				transform: translateX(-101%);
+				transition: all 0.3s ease;
+			}
+		}
+
+		&:hover,
+		&.edgtf-active{
+            color: #000;
+
+			span{
+				position: relative;
+				overflow: hidden;
+
+				&:before{
+					transform: translateX(0);
+				}
+			}
+
+        }
+
+		&.edgtf-active {
+			span {
+				color: #000;
+			}
+		}
+	}
+	&:not(.edgtf-active){
+        span {
+			color: #000;
+        }
+     }
+
+	.edgtf-ils-item-title {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		line-height: inherit;
+		cursor: pointer;
+		z-index: 2;
+		box-sizing: border-box;
+	}
+}
+/* ==========================================================================
+   Interactive link showcase shortcode style - end
+   ========================================================================== */

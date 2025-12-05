@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Testimonials boxed style - begin
+   ========================================================================== */
+
+.edgtf-testimonials-holder {
+    
+    &.edgtf-testimonials-boxed {
+
+        padding: 7.7% 5% 0 6%;
+        box-sizing: border-box;
+        background-color: #fff;
+
+        @include laptop-landscape-large{
+            padding: 9.2% 5% 0 0;
+        }
+
+        @include ipad-landscape{
+            padding: 12% 6% 6% 0;
+        }
+
+        @include ipad-portrait{
+            padding: 17% 6% 8.8% 0;
+        }
+
+        @include phone-landscape{
+            padding: 29% 0 15.8% 0;
+        }
+
+        .edgtf-testimonial-intro-title{
+            margin: 13px 0 1px;
+            padding-left: 3%;
+            box-sizing: border-box;
+
+            @include laptop-landscape-large{
+                padding-left: 0;
+            }
+        }
+
+        .edgtf-testimonials {
+
+        }
+        .edgtf-testimonials .owl-stage-outer{
+          background-color: transparent;
+        }
+        .edgtf-testimonial-content {
+            padding: 0 0 3.5%;
+            background-color: transparent;
+            box-sizing: border-box;
+        }
+        .edgtf-testimonials-author-holder {
+            @include edgtfRelativeHolderLayout();
+            margin: 9px 0 0;
+
+            .edgtf-testimonial-image {
+                float: left;
+            }
+
+            .edgtf-testimonial-author {
+                padding: 3px 0 0 110px;
+            }
+        }
+        /* Light/Dark styles */
+        &.edgtf-testimonials-light {
+
+            .edgtf-testimonials{
+                background-color: #000;
+            }
+            .edgtf-testimonial-title,
+            .edgtf-testimonial-text,
+            .edgtf-testimonial-author {
+                color: #fff;
+            }
+
+            .owl-nav{
+                .owl-prev,
+                .owl-next{
+                    color: #fff;
+
+                    &:hover{
+                        color: $first-main-color;
+                    }
+                }
+            }
+
+            .owl-dots {
+                
+                .owl-dot {
+
+                    &:before {
+                        color: #fff;
+                        background-color: #000;
+                    }
+                    
+                    &:hover,
+                    &.active {
+
+                        &:before {
+                            color: #000;
+                            background-color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* ==========================================================================
+   Testimonials boxed style - end
+   ========================================================================== */
+

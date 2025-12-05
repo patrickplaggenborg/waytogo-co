@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Portfolio Item Layout - Masonry Side Text - begin
+   ========================================================================== */
+
+.edgtf-pl-masonry-side-text{
+
+    &.edgtf-pl-with-dark-title{
+        .edgtf-pli-title {
+            color: #000;
+
+            &:hover{
+                color: $first-main-color;
+            }
+        }
+    }
+
+    .edgtf-pli-title {
+        transform: rotate(-90deg);
+        left: -25px;
+        bottom: 50px;
+        position: absolute;
+        display: block;
+        transform-origin: 0% 100%;
+        margin: 0;
+        color: #fff;
+
+        &:hover{
+            color: $first-main-color;
+        }
+    }
+}
+
+/* ==========================================================================
+   Portfolio Item Layout - Masonry Side Text - end
+   ========================================================================== */
+

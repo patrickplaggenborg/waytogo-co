@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Horizontaly Scrolling Portfolio List shortcode style - begin
+   ========================================================================== */
+.edgtf-horizontaly-scrolling-portfolio-holder-outer {
+	@include laptop-landscape-large {
+
+	}
+
+	@include ipad-landscape {
+
+		.edgtf-hspl-inner,
+		article .edgtf-hspli-image-holder,
+		.edgtf-hspl-custom{
+			height: calc(100vh - 69px);
+		}
+
+		.edgtf-hspl-item-inner {
+			margin: 0 !important;
+		}
+	}
+
+	/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+	/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+	/* ----------- iPhone X ----------- */
+	@media only screen 
+	and (min-device-width: 375px) 
+	and (max-device-width: 667px) 
+	and (-webkit-min-device-pixel-ratio: 2),
+	only screen 
+	and (min-device-width: 414px) 
+	and (max-device-width: 736px) 
+	and (-webkit-min-device-pixel-ratio: 3),
+	only screen 
+	and (min-device-width: 375px) 
+	and (max-device-width: 812px) 
+	and (-webkit-min-device-pixel-ratio: 3),
+	only screen and (max-device-width: 680px) {
+		padding: 0;
+
+		.edgtf-hspl-item-inner {
+			height: auto;
+			width: 100%;
+		}
+
+		.edgtf-hspl-custom{
+			position: relative;
+			width: 100%;
+			margin: 0;
+		}
+
+		article {
+			opacity: 1;
+			margin-right: 0;
+
+			&.edgtf-hspl-featured {
+				.edgtf-hspl-item-holder-inner {
+					width: 100%;
+					text-align: center;
+				}
+
+				img {
+					margin: auto;
+				}
+
+				.edgtf-hspli-text {
+					padding: 22px 0;
+				}
+			}
+
+			&:not(.edgtf-hspl-featured) {
+				width: 100%;
+				margin-bottom: 0;
+			}
+		}
+
+		.edgtf-hspl-inner {
+			visibility: visible;
+			display: block;
+			height: auto;
+		}
+	}
+}
+/* ==========================================================================
+   Horizontaly Scrolling Portfolio List shortcode style - end
+   ========================================================================== */

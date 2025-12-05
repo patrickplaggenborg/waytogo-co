@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Portfolio Item Layout - Gallery Overlay style - begin
+   ========================================================================== */
+
+.edgtf-portfolio-list-holder {
+	
+	&.edgtf-pl-gallery-overlay {
+		
+		&.edgtf-pl-has-shadow {
+			
+			.edgtf-pl-item-inner {
+				box-shadow: $default-box-shadow;
+			}
+		}
+
+		&.edgtf-pl-info-light-skin{
+
+			.edgtf-pli-text {
+
+				.edgtf-pli-title,
+				.edgtf-pli-excerpt {
+					color: #fff;
+				}
+
+				.edgtf-pli-category-holder {
+
+					a {
+						color: #fff;
+
+						&:hover {
+							color: $first-main-color;
+						}
+					}
+				}
+			}
+
+		}
+
+		&.edgtf-pl-info-dark-skin{
+
+			.edgtf-pli-text {
+
+				.edgtf-pli-title,
+				.edgtf-pli-excerpt {
+					color: #000;
+				}
+
+				.edgtf-pli-category-holder {
+
+					a {
+						color: #000;
+
+						&:hover {
+							color: $first-main-color;
+						}
+					}
+				}
+			}
+
+		}
+		
+		article {
+			
+			&:hover {
+				
+				.edgtf-pli-text-holder {
+					opacity: 1;
+				}
+			}
+			
+			.edgtf-pl-item-inner {
+				overflow: hidden;
+			}
+		}
+		
+		.edgtf-pli-text-holder {
+			@include edgtfAbsoluteHolderLayout();
+			padding: 20px;
+			background-color: rgba($default-heading-color, 0.4);
+			opacity: 0;
+			text-align: center;
+			box-sizing: border-box;
+			transition: opacity .2s ease-in-out;
+		}
+	}
+
+	@media all and (min-width: 769px) {
+		&.edgtf-three-columns.edgtf-with-lower-even-columns .edgtf-item-space:nth-child(3n+2) {
+			margin-top: 52px;
+		}
+	}
+	@media all and (min-width: 769px) {
+		&.edgtf-two-columns.edgtf-with-lower-even-columns .edgtf-item-space:nth-child(2n) {
+			margin-top: 70px;
+		}
+	}
+}
+
+/* ==========================================================================
+   Portfolio Item Layout - Gallery Overlay style - end
+   ========================================================================== */

@@ -1,0 +1,46 @@
+@include laptop-landscape {
+	.edgtf-workflow {
+		.edgtf-workflow-item {
+			max-width: 100%;
+
+			.edgtf-workflow-item-inner .edgtf-workflow-text {
+				padding: 0px 40px;
+			}
+
+			 .edgtf-workflow-item-inner .edgtf-workflow-image {
+				 padding: 0px 40px;
+			 }
+		}
+	}
+}
+
+@include ipad-portrait {
+
+}
+
+@include phone-landscape {
+
+	.edgtf-workflow {
+
+		.main-line,
+		.edgtf-workflow-item .line,
+		.edgtf-workflow-item .edgtf-workflow-text .circle {
+			display: none !important;
+		}
+
+		.edgtf-workflow-item {
+			text-align: center !important;
+		}
+
+		.edgtf-workflow-text {
+			width: 100% !important;
+			padding: 0px !important;
+		}
+
+		.edgtf-workflow-image {
+			width: 100% !important;
+			margin-bottom: 20px !important;
+			text-align: center !important;
+		}
+	}
+}

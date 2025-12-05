@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Portfolio Item  Responsive Layout - begin
+   ========================================================================== */
+
+/* Masonry Side Text Layout Begin */
+
+@include ipad-portrait{
+    .edgtf-pl-masonry-side-text{
+        .edgtf-pli-title {
+            -ms-transform: initial;
+            -webkit-transform: initial;
+            transform: initial;
+            bottom: initial;
+            left: initial;
+            position: relative;
+            margin: 20px 0 0 40px;
+        }
+    }
+}
+
+/* Masonry Side Text Layout End */
+
+/* ==========================================================================
+   Portfolio Item  Responsive Layout - end
+   ========================================================================== */

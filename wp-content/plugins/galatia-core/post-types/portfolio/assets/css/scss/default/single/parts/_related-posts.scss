@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Portfolio Single navigation style - begin
+   ========================================================================== */
+
+.edgtf-ps-related-posts-holder {
+	@include edgtfRelativeHolderLayout();
+	margin: 144px 0 152px;
+	clear: both;
+
+	.edgtf-ps-realted-title-holder{
+		margin: 0 0 55px;
+		padding: 0 8.5%;
+
+		@include ipad-landscape{
+			margin: 0 0 2px;
+		}
+
+		@include ipad-landscape{
+			padding: 0;
+		}
+
+		h2{
+			margin: 0;
+		}
+	}
+
+    .edgtf-ps-huge-images-layout &,
+    .edgtf-ps-small-masonry-layout &{
+        margin: 138px 0 152px;
+    }
+
+	.edgtf-ps-huge-images-layout &{
+		@include phone-landscape{
+			margin: 143px 0 152px;
+		}
+
+	}
+
+    .edgtf-ps-images-layout &{
+        margin: 140px 0 152px;
+    }
+
+    .edgtf-ps-small-images-layout &,
+    .edgtf-ps-slider-layout &,
+    .edgtf-ps-gallery-layout &,
+    .edgtf-ps-small-gallery-layout &,
+    .edgtf-ps-small-masonry-layout &,
+    .edgtf-ps-masonry-layout &,
+    .edgtf-ps-advanced-layout &{
+        margin: 139px 0 160px;
+    }
+
+    .edgtf-ps-small-slider-layout &{
+		margin: 137px 0 153px;
+    }
+
+	.edgtf-ps-related-posts {
+		margin: 0 -15px;
+	}
+	
+	.edgtf-ps-related-post {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		width: 33%;
+		float: left;
+		padding: 0 15px;
+		box-sizing: border-box;
+		
+
+		@include ipad-portrait {
+			width: 100%;
+			margin-top: 53px;
+		}
+	}
+
+	.edgtf-ps-related-posts {
+		.edgtf-ps-related-post{
+			&:nth-child(2){
+				margin-top: 53px;
+			}
+		}
+	}
+	
+	.edgtf-ps-related-image {
+		@include edgtfRelativeHolderLayout();
+		
+		a, img {
+			display: block;
+		}
+	}
+
+    .edgtf-ps-related-post{
+		&:hover{
+			.edgtf-ps-related-text {
+				opacity: 1;
+			}
+		}
+
+		.edgtf-related-overlay-link{
+			@include edgtfAbsoluteHolderLayout();
+		}
+	}
+	
+	.edgtf-ps-related-text {
+		@include edgtfAbsoluteHolderLayout();
+		opacity: 0;
+		margin: 0;
+		padding: 10px;
+		box-sizing: border-box;
+		transition: opacity .2s ease-in-out;
+		background-color: rgba(0,0,0,0.83);
+
+		.edgtf-ps-realted-text-table{
+			@include edgtfTableLayout();
+		}
+
+		.edgtf-ps-realted-text-table-cell{
+			@include edgtfTableCellLayout(middle);
+			text-align: center;
+		}
+		
+		.edgtf-ps-related-title {
+			margin: 0;
+			color: #fff;
+		}
+		
+		.edgtf-ps-related-categories {
+			margin: 6px 0 0;
+			color: #fff;
+		}
+	}
+}
+/* ==========================================================================
+   Portfolio Single navigation style - end
+   ========================================================================== */

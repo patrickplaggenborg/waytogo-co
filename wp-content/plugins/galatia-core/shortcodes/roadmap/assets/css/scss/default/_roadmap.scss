@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Roadmap shortcode style - begin
+   ========================================================================== */
+
+.edgtf-roadmap {
+    @include edgtfRelativeHolderLayout();
+	padding: 200px 0; //3px due to arrow point
+	overflow: hidden;
+
+	.edgtf-roadmap-holder{
+		overflow: hidden;
+	}
+
+	.edgtf-roadmap-line{
+		position: relative;
+		width: 100%;
+		height: 3px;
+		background-color: $additional-background-color;
+
+		.edgtf-rl-arrow-left,
+		.edgtf-rl-arrow-right{
+			position: absolute;
+			top: 50%;
+			font-size: 30px;
+			color: $first-main-color;
+			cursor: pointer;
+			transform: translateY(-50%);
+			z-index: 50;
+		}
+
+		.edgtf-rl-arrow-left{
+			left: 0;
+			padding: 10px 10px 10px 0; //to enlarge click area
+
+			svg{
+				transform: rotate(180deg);
+			}
+		}
+
+		.edgtf-rl-arrow-right{
+			right: 0;
+			padding: 10px 0 10px 10px; //to enlarge click area
+		}
+	}
+
+	.edgtf-roadmap-inner-holder{
+		transition: all .2s ease-in-out;
+	}
+
+	.edgtf-roadmap-item{
+		position: relative;
+		float: left;
+		text-align: center;
+		transform: translateY(calc(-50% - 2px)); //2px due to line height/2
+
+		.edgtf-roadmap-item-circle-holder{
+			font-size: 0;
+		}
+
+		.edgtf-roadmap-item-before-circle,
+		.edgtf-roadmap-item-after-circle{
+			display: inline-block;
+			vertical-align: middle;
+			width: calc(50% - 10px);
+			height: 3px;
+			background-color: #dfdfdf;
+		}
+
+		.edgtf-roadmap-item-circle{
+			display: inline-block;
+			vertical-align: middle;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: $additional-background-color;
+			box-shadow: inset 0px 0px 0px 6px $first-main-color;
+		}
+
+		.edgtf-roadmap-item-stage-title-holder{
+			position: absolute;
+			left: 0;
+			width: 100%;
+
+			.edgtf-ris-title{
+				color: $default-heading-color;
+				font-size: 20px;
+				font-family: $default-text-font;
+				font-weight: 600;
+			}
+		}
+
+		.edgtf-roadmap-item-content-holder{
+			position: absolute;
+			left: 0;
+			width: 100%;
+			text-align: left;
+			padding: 25px 35px;
+			box-sizing: border-box;
+			border: 1px solid $default-border-color;
+			background-color: $additional-background-color;
+			border-radius: 10px;
+			z-index: -1;
+
+			.edgtf-ric-title{
+				margin: 0 0 14px;
+			}
+
+			&:after{
+				content: '';
+				position: absolute;
+				left: 50%;
+				width: 3px;
+				height: 70px;
+				background-color: #dfdfdf;
+				transform: translateX(-50%);
+				z-index: -1;
+			}
+		}
+
+		&.edgtf-roadmap-item-above{
+			.edgtf-roadmap-item-stage-title-holder{
+				top: 35px;
+			}
+
+			.edgtf-roadmap-item-content-holder{
+				bottom: 75px;
+
+				&:after{
+					top: 100%;
+				}
+			}
+		}
+
+		&.edgtf-roadmap-item-below{
+			.edgtf-roadmap-item-stage-title-holder{
+				bottom: 32px;
+			}
+
+			.edgtf-roadmap-item-content-holder{
+				top: 75px;
+
+				&:after{
+					bottom: 100%;
+				}
+			}
+		}
+
+		&.edgtf-roadmap-reached-item{
+			.edgtf-roadmap-item-before-circle{
+				background-color: $first-main-color;
+			}
+		}
+
+		&.edgtf-roadmap-passed-item{
+			.edgtf-roadmap-item-before-circle,
+			.edgtf-roadmap-item-after-circle{
+				background-color: $first-main-color;
+			}
+		}
+	}
+
+	&.edgtf-roadmap-skin-dark{
+		.edgtf-roadmap-line,
+		.edgtf-roadmap-item-before-circle,
+		.edgtf-roadmap-item-after-circle,
+		.edgtf-roadmap-item-circle,
+		.edgtf-roadmap-item-content-holder:after{
+			background-color: #505050;
+		}
+
+		.edgtf-roadmap-item-stage-title-holder .edgtf-ris-title{
+			color: #fff;
+		}
+
+		.edgtf-ric-title{
+			color: #fff;
+			margin: 0 0 14px;
+		}
+
+		.edgtf-roadmap-item-content-holder {
+			background-color: #272727;
+		}
+	}
+	&.edgtf-roadmap-skin-light {
+		
+		.edgtf-roadmap-item {
+			.edgtf-roadmap-item-content-holder {
+				background-color: #fff;
+			}
+
+		}
+
+		.edgtf-roadmap-item {
+			.edgtf-roadmap-item-circle {
+				background-color: #434343;
+			}
+
+		}
+		.edgtf-roadmap-line {
+			background-color: #dfdfdf;
+		}
+
+	}
+
+}
+/* ==========================================================================
+   Roadmap shortcode style - end
+   ========================================================================== */

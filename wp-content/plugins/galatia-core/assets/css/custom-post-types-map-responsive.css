@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Global partials
+   ========================================================================== */
+/* ==========================================================================
+   Custom Post Types responsive styles
+   ========================================================================== */
+/* ==========================================================================
+   Portfolio Single page responsive style - begin
+   ========================================================================== */
+.edgtf-portfolio-single-holder .edgtf-ps-image-holder.edgtf-ps-gallery-images {
+  /***** Columns Layout - end *****/
+}
+
+@media only screen and (max-width: 680px) {
+  .edgtf-portfolio-single-holder .edgtf-ps-image-holder.edgtf-ps-gallery-images .edgtf-ps-image {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .edgtf-portfolio-single-holder .edgtf-ps-info-holder {
+    margin: 30px 0 0 !important;
+  }
+}
+
+/* ==========================================================================
+   Portfolio Single page responsive style - end
+   ========================================================================== */
+/* ==========================================================================
+   Horizontaly Scrolling Portfolio List shortcode style - begin
+   ========================================================================== */
+.edgtf-horizontaly-scrolling-portfolio-holder-outer {
+  /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+  /* ----------- iPhone 6+, 7+ and 8+ ----------- */
+  /* ----------- iPhone X ----------- */
+}
+
+@media only screen and (max-width: 1024px) {
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer .edgtf-hspl-inner,
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer article .edgtf-hspli-image-holder,
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer .edgtf-hspl-custom {
+    height: calc(100vh - 69px);
+  }
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer .edgtf-hspl-item-inner {
+    margin: 0 !important;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3), only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3), only screen and (max-device-width: 680px) {
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer {
+    padding: 0;
+  }
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer .edgtf-hspl-item-inner {
+    height: auto;
+    width: 100%;
+  }
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer .edgtf-hspl-custom {
+    position: relative;
+    width: 100%;
+    margin: 0;
+  }
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer article {
+    opacity: 1;
+    margin-right: 0;
+  }
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer article.edgtf-hspl-featured .edgtf-hspl-item-holder-inner {
+    width: 100%;
+    text-align: center;
+  }
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer article.edgtf-hspl-featured img {
+    margin: auto;
+  }
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer article.edgtf-hspl-featured .edgtf-hspli-text {
+    padding: 22px 0;
+  }
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer article:not(.edgtf-hspl-featured) {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .edgtf-horizontaly-scrolling-portfolio-holder-outer .edgtf-hspl-inner {
+    visibility: visible;
+    display: block;
+    height: auto;
+  }
+}
+
+/* ==========================================================================
+   Horizontaly Scrolling Portfolio List shortcode style - end
+   ========================================================================== */
+/* ==========================================================================
+   Portfolio Item  Responsive Layout - begin
+   ========================================================================== */
+/* Masonry Side Text Layout Begin */
+@media only screen and (max-width: 768px) {
+  .edgtf-pl-masonry-side-text .edgtf-pli-title {
+    -ms-transform: initial;
+    -webkit-transform: initial;
+    transform: initial;
+    bottom: initial;
+    left: initial;
+    position: relative;
+    margin: 20px 0 0 40px;
+  }
+}
+
+/* Masonry Side Text Layout End */
+/* ==========================================================================
+   Portfolio Item  Responsive Layout - end
+   ========================================================================== */
+@media only screen and (max-width: 680px) {
+  .edgtf-testimonials-holder.edgtf-testimonials-image-pagination .edgtf-testimonials-image-pagination-inner {
+    padding: 0 10px 0 30%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .edgtf-testimonials-holder.edgtf-testimonials-image-pagination .edgtf-testimonials-image-pagination-inner .edgtf-testimonial-text {
+    font-size: 15px;
+    line-height: 27px;
+  }
+}
+
+/*# sourceMappingURL=../../../../plugins/galatia-core/assets/css/custom-post-types-map-responsive.css.map */

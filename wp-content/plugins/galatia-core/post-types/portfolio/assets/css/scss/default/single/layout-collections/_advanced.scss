@@ -1,0 +1,308 @@
+/* ==========================================================================
+   Portfolio Single - Advanced layout style - begin
+   ========================================================================== */
+
+.edgtf-portfolio-single-holder {
+
+    &.edgtf-ps-advanced-layout {
+
+        .edgtf-ps-info-item{
+            margin: 0 0 20px;
+        }
+
+        .edgtf-ps-single-intro-section{
+            min-height: 100vh;
+            background-size: cover;
+            opacity: 0;
+
+            .edgtf-ms-explorer &{
+                background-size: 100% 100vh;
+                background-attachment: scroll;
+            }
+
+            &.edgtf-loaded{
+                opacity: 1;
+            }
+
+            @include ipad-landscape{
+                background-attachment: scroll;
+                height: auto;
+                background-size: auto 100vh;
+            }
+
+            .edgtf-ps-single-intro-title-holder{
+                padding: 0 8.5%;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.3s ease, transform 0.6s ease;
+
+                &.edgtf-loaded-title{
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                @include ipad-landscape{
+                    padding: 0;
+                }
+            }
+
+            .edgtf-ps-single-title-holder{
+                .edgtf-ps-advanced-title-fragments{
+                    display: block;
+                }
+            }
+
+            &.edgtf-ps-intro-light{
+                .edgtf-ps-single-category-holder,
+                .edgtf-ps-single-category-holder .edgtf-ps-info-category,
+                .edgtf-ps-title,
+                .edgtf-ps-scroll-text{
+                    color: #fff;
+                }
+
+                .edgtf-ps-intro-scroll-link .edgtf-ps-scroll-shape{
+                    background-color: #fff;
+                }
+
+            }
+
+            &.edgtf-ps-intro-dark{
+                .edgtf-ps-single-category-holder,
+                .edgtf-ps-single-category-holder .edgtf-ps-info-category,
+                .edgtf-ps-title,
+                .edgtf-ps-scroll-text{
+                    color: #000;
+                }
+
+                .edgtf-ps-intro-scroll-link .edgtf-ps-scroll-shape{
+                    background-color: #000;
+                }
+
+            }
+
+            .edgtf-ps-single-intro-section-inner{
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+
+                .edgtf-container-inner{
+                    .edgtf-ms-explorer &{
+                        margin: 0; //IE tweak
+                    }
+                }
+            }
+
+            .edgtf-ps-single-category-holder{
+                margin: 0 0 17px;
+            }
+
+            .edgtf-ps-title{
+                margin: 0;
+                font-size: 80px;
+
+                @include phone-landscape{
+                    font-size: 40px;
+                }
+            }
+
+            .edgtf-ps-intro-scroll-link{
+                position: absolute;
+                bottom: 97px;
+                left: 0;
+                text-align: center;
+                width: 100%;
+
+                @include laptop-landscape-large{
+                    bottom: 25px;
+                }
+
+                @include ipad-landscape{
+                    bottom: 50px;
+                }
+
+                .edgtf-ps-intro-scroll-link-trigger{
+                    cursor: pointer;
+                }
+
+                .edgtf-ps-scroll-text{
+                    margin: 0 0 24px;
+                }
+
+                .edgtf-ps-scroll-shape{
+                    display: inline-block;
+                    width: 1px;
+                    height: 68px;
+                    background-color: #000;
+                }
+            }
+
+        }
+
+        .edgtf-ps-single-additional-info{
+            .edgtf-ps-single-additional-info-inner{
+                background-color: transparent;
+                padding: 160px 0;
+
+                @include ipad-landscape{
+                    padding: 10px 0 10px;
+                }
+
+                .edgtf-ps-single-additional-info-section{
+                    background-color: $default-background-color;
+                    padding: 97px 8.5% 75px;
+                    box-sizing: border-box;
+
+                    @include ipad-landscape{
+                        padding: 153px 8.5% 104px;
+                    }
+
+                    .edgtf-grid-col-4{
+                        width: 29.4%;
+                        padding-top: 4px;
+
+                        @include ipad-landscape{
+                            padding-top: 0;
+                            width: 100%;
+                        }
+
+                        @include phone-portrait{
+                            margin: 0 0 2px;
+                        }
+                    }
+
+                    .edgtf-grid-col-8{
+                        width: 70.6%;
+
+                        @include ipad-landscape{
+                            margin-top: 103px;
+                            width: 100%;
+                        }
+                    }
+
+                    visibility:hidden;
+
+                    .touch & {
+                        visibility: visible;
+                    }
+
+                    .no-touch & {
+                        visibility: visible;
+                        -webkit-clip-path: inset(0 100% 0 0);
+                        clip-path: inset(0 100% 0 0);
+
+                        .edgtf-grid-row > div {
+                            opacity: 0;
+                            transform: translate3d(0, 70px, 0);
+                        }
+
+                        &.edgtf-uncover {
+                            -webkit-clip-path: inset(0 0 0 0);
+                            clip-path: inset(0 0 0 0);
+                            transition: all 1s cubic-bezier(0.86, 0, 0.07, 1);
+
+                            .edgtf-grid-row > div {
+                                opacity: 1;
+                                transform: translate3d(0,0,0);
+
+                                &:first-child {
+                                    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1) .6s;
+                                }
+
+                                &:last-child {
+                                    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1) .9s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.edgtf-ps-dark{
+
+            .edgtf-social-share-holder li a{
+                &:hover{
+                    color: $first-main-color;
+                }
+            }
+
+            .edgtf-ps-single-main-content{
+                background-color: #000;
+            }
+
+            /*.edgtf-ps-single-intro-section{
+
+                *:not(.edgtf-social-network-icon){
+                    color: #fff;
+                }
+
+                .edgtf-ps-intro-scroll-link{
+                    .edgtf-ps-scroll-shape{
+                        background-color: #fff;
+                    }
+                }
+            }*/
+
+            .edgtf-ps-single-additional-info{
+
+                *:not(.edgtf-social-network-icon){
+                    color: #fff;
+                }
+
+                .edgtf-ps-single-additional-info-inner{
+
+                    .edgtf-ps-single-additional-info-section{
+                        background-color: #000;
+                    }
+                }
+
+                a{
+                    color: #fff;
+
+                    &:hover{
+                        color: $first-main-color;
+                    }
+                }
+            }
+
+            .edgtf-ps-single-content{
+                *:not(.edgtf-social-network-icon){
+                    color: #fff;
+                }
+            }
+
+            .edgtf-ps-navigation-holder{
+
+                *:not(.edgtf-social-network-icon){
+                    color: #fff;
+                }
+
+                background-color: #000;
+
+                .edgtf-ps-navigation{
+                    .edgtf-ps-nav-line{
+                        background-color: #fff;
+                    }
+                }
+
+                .edgtf-ps-prev,
+                .edgtf-ps-next{
+                    .edgtf-ps-nav-mark{
+
+                        transition: color 0.2s ease-out;
+
+                        &:hover{
+                            color: $first-main-color;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+/* ==========================================================================
+   Portfolio Single - Gallery layout style - end
+   ========================================================================== */

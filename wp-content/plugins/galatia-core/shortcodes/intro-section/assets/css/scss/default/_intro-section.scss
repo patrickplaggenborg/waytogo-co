@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Intro Section shortcode style - begin
+   ========================================================================== */
+
+#edgtf-intro-section {
+    display: flex;
+    min-height: 100vh;
+
+    .edgtf-ms-explorer &{
+        height: 100vh;
+    }
+
+    .edgtf-is-content-wrapper {
+        position: relative;
+        z-index: 100;
+        width: 61%;
+        max-width: 1160px;
+        margin: 0 auto;
+    }
+
+    &.edgtf-is-align-center {
+        align-items: center;
+
+        .edgtf-is-content-wrapper {
+            width: 50%;
+        }
+
+        .edgtf-is-content-btm {
+            box-sizing: border-box;
+            padding-left: 36%;
+            width: 113%;
+        }
+    }
+
+    &.edgtf-is-align-bottom {
+        align-items: flex-end;
+        box-sizing: border-box;
+        padding-bottom: 12.4vh;
+    }
+
+    .edgtf-is-title,
+    .edgtf-is-subtitle {
+        color: inherit;
+    }
+
+    .edgtf-is-subtitle {
+        margin-bottom: 18px;
+    }
+
+    .edgtf-is-text {
+        margin-top: 40px;
+        margin-bottom: 70px;
+        font-size: 19px;
+        line-height: 1.84em;
+    }
+
+    .edgtf-is-bg-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity .5s cubic-bezier(0.39, 0.575, 0.565, 1);
+        will-change: opacity;
+    }
+
+    .edgtf-is-bg-image {
+        @include edgtfAbsoluteHolderLayout;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &.edgtf-fade-bg {
+        .edgtf-is-bg-wrapper {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}
+
+/* ==========================================================================
+   Intro Section shortcode style - end
+   ========================================================================== */

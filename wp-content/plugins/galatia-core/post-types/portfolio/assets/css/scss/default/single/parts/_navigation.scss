@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Portfolio Single navigation style - begin
+   ========================================================================== */
+
+.edgtf-ps-navigation {
+	position: relative;
+	display: table;
+	width: 100%;
+	vertical-align: middle;
+	padding: 0 8.5%;
+	margin: 135px 0 115px;
+	clear: both;
+    box-sizing: border-box;
+
+	@include ipad-landscape{
+		padding: 0;
+	}
+
+    .edgtf-ps-full-width-custom-layout & {
+        padding: 0 40px;
+    }
+
+	.edgtf-ps-huge-images-layout &{
+        margin: 97px 0 147px;
+
+        @include ipad-landscape{
+            margin: 119px 0 169px;
+        }
+
+        @include phone-landscape{
+            margin: 121px 0 171px;
+        }
+	}
+
+    .edgtf-ps-images-layout &{
+        margin: 128px 0 147px;
+    }
+
+    .edgtf-ps-small-images-layout &{
+        margin: 137px 0 147px;
+
+        @include ipad-landscape{
+            margin: 129px 0 147px;
+        }
+    }
+
+    .edgtf-ps-small-slider-layout &{
+        margin: 136px 0 147px;
+
+        @include laptop-landscape-large{
+            margin: 130px 0 147px;
+        }
+    }
+
+    .edgtf-ps-slider-layout &{
+        margin: 128px 0 147px;
+    }
+
+    .edgtf-ps-gallery-layout &{
+        margin: 129px 0 147px;
+
+        @media only screen and (min-width: 1025px) and (max-width: 1440px){
+            margin: 100px 0 147px;
+        }
+    }
+
+    .edgtf-ps-small-gallery-layout &{
+        margin: 108px 0 147px;
+
+        @include laptop-landscape-large{
+            margin: 130px 0 147px;
+        }
+    }
+
+    .edgtf-ps-small-masonry-layout &{
+        margin: 131px 0 147px;
+
+        @include laptop-landscape-large{
+            margin: 131px 0 147px;
+        }
+    }
+
+    .edgtf-ps-masonry-layout &{
+        margin: 129px 0 147px;
+    }
+
+    .edgtf-ps-advanced-layout &{
+        margin: 60px 0 148px;
+    }
+
+	.edgtf-ps-prev,
+	.edgtf-ps-next {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		
+		&.edgtf-ps-nav-inactive{
+			opacity: 0.2;
+		}
+
+        @include phone-portrait{
+            display: block;
+        }
+	}
+
+	.edgtf-ps-nav-line{
+		display: inline-block;
+		vertical-align: middle;
+		width: 190px;
+		height: 1px;
+		margin: 0 32px 0 18px;
+		background-color: $default-heading-color;
+
+        @include phone-portrait{
+            display: block;
+            margin: 20px 0;
+        }
+	}
+}
+/* ==========================================================================
+   Portfolio Single navigation style - end
+   ========================================================================== */

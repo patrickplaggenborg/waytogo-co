@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Horizontaly Scrolling Portfolio List shortcode style - begin
+   ========================================================================== */
+.edgtf-horizontaly-scrolling-portfolio-holder-outer{
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.edgtf-horizontaly-scrolling-portfolio-holder {
+    @include edgtfRelativeHolderLayout();
+
+	.edgtf-hspl-inner{
+		display: flex;
+		height: calc(100vh - 115px);
+		visibility: hidden;
+		will-change: transform;
+		position: relative;
+		box-sizing: content-box;
+
+		.touch & {
+			transition: transform .5s;
+		}
+
+		&.edgtf-ready {
+			visibility: visible;
+
+			article {
+				opacity: 1;
+
+				@for $i from 1 through 6 {
+					&:nth-child(#{$i}) {
+						-webkit-transition-delay:(#{$i*0.1s}); 
+						transition-delay:(#{$i*0.1s});
+					}
+				}
+			}
+		}
+	}
+
+	/***** Article Global Style - begin *****/
+
+
+
+    article {
+		opacity: 0;
+		transition: opacity .8s cubic-bezier(0.34, 0.52, 0.57, 1.04);
+
+		.edgtf-hspli-image-holder{
+			height: calc(100vh - 115px);
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.edgtf-hspl-featured {
+
+		}
+
+		.edgtf-hspl-item-inner {
+			width: 100%;
+		}
+		
+		&:not(.edgtf-hspl-featured) {
+
+		}
+
+	    .touch & {
+		    cursor: pointer;
+	    }
+
+		.edgtf-hspl-item-holder-inner{
+			position: relative;
+		}
+
+		&.edgtf-hspl-featured {
+			.edgtf-hspl-item-holder-inner{
+
+			}
+
+			.edgtf-hspli-text{
+				padding-top: 22px;
+			}
+
+			.edgtf-hspli-category-holder {
+				margin: 0 0 1px;
+			}
+
+			.edgtf-hspli-title {
+				display: inline;
+			}
+
+			.edgtf-hspl-item-holder-inner:hover {
+				.edgtf-hspli-title {
+					background-size: 100% 100%;
+				}
+			}
+		}
+		    
+		img {
+			display: block;
+		}
+
+	    .edgtf-hspli-link {
+		    @include edgtfAbsoluteHolderLayout();
+	    }
+
+	    .edgtf-hspli-text-wrapper {
+	        @include edgtfTableLayout();
+	    }
+
+	    .edgtf-hspli-text {
+		    @include edgtfTableCellLayout();
+
+		    .edgtf-hspli-title {
+				margin: 0;
+		    }
+	    }
+
+		&:not(.edgtf-hspl-featured) {
+			.edgtf-hspl-item-title-holder {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+				padding: 34px;
+				text-align: center;
+				background-color: rgba(0,0,0,.8);
+				opacity: 0;
+				transition: opacity .4s;
+	
+				.edgtf-hspli-title {
+					color :#fff;
+					line-height: 1.5em;
+				}
+			}
+
+			&:hover {
+				.edgtf-hspl-item-title-holder {
+					opacity: 1;
+				}
+			}
+		}
+    }
+
+	.edgtf-hspl-custom{
+		height: calc(100vh - 115px);
+		position: absolute;
+		width: 865px; //to avoid flicker since it will be calculated to be that much
+		left: 0;
+		top: 0;
+
+		.edgtf-hspl-item-inner{
+			@include edgtfTableLayout();
+			background-color: $additional-background-color;
+
+			.edgtf-hspl-item-holder-inner{
+				@include edgtfTableCellLayout(middle);
+				padding: 0 33% 0 63px;
+
+				@include laptop-landscape-large{
+					padding: 0 16% 0 63px;
+				}
+
+				@include ipad-landscape{
+					padding: 0 9% 30px 9%;
+				}
+
+				@include ipad-portrait{
+					padding: 0 9% 30px 9%;
+				}
+
+				@include phone-portrait{
+					padding: 0 6% 35px 0;
+				}
+
+				.edgtf-hspli-item-subtitle-text{
+					margin: 0 0 10px;
+				}
+
+				.edgtf-hspli-item-title-text{
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	/***** Article Global Style - end *****/
+
+}
+/* ==========================================================================
+   Horizontaly Scrolling Portfolio List shortcode style - end
+   ========================================================================== */

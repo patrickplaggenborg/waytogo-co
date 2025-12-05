@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Intro Section shortcode responsive style - begin
+   ========================================================================== */
+
+#edgtf-intro-section {
+    @include laptop-landscape-large {
+        .edgtf-is-content-wrapper {
+            width: 71% !important;
+        }
+
+        .edgtf-is-content-btm {
+            width: 100%;
+            padding-left: 20%;
+        }
+    }
+
+    @include ipad-landscape{
+        .edgtf-is-content-wrapper {
+            width: 75% !important;
+        }
+    }
+
+    @media only screen and (max-width: 736px) {
+        .edgtf-is-text {
+            display: none;
+        }
+
+        .edgtf-btn {
+            margin-top: 75px;
+        }
+    }
+
+    @include phone-portrait{
+
+        padding-top: 90px;
+        box-sizing: border-box;
+
+        &.edgtf-is-align-bottom{
+            padding-top: 36vh;
+        }
+
+        .edgtf-is-content-wrapper {
+            width: 80% !important;
+        }
+
+        &.edgtf-is-align-center{
+            .edgtf-is-content-btm {
+                padding-left: 0;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 360px){
+
+    }
+}
+
+/* ==========================================================================
+   Intro Section shortcode responsive style - end
+   ========================================================================== */
