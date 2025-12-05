@@ -31,6 +31,12 @@ define( 'DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD') ?: 'X@q~XX0MK[~AsQP9ZZ,51
 /** MySQL hostname */
 define( 'DB_HOST', getenv('WORDPRESS_DB_HOST') ?: 'localhost' );
 
+/**
+ * Database SSL Configuration
+ * Required because the database server has require_secure_transport=ON
+ */
+define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
 
