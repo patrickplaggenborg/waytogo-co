@@ -205,10 +205,10 @@ if ( ! function_exists( 'galatia_edge_addslashes' ) ) {
 	 */
 	function galatia_edge_addslashes( $str ) {
 		//is magic quotes turned off in php.ini?
-		if ( ! get_magic_quotes_gpc() ) {
+		// if ( ! get_magic_quotes_gpc() ) {
 			//apply addslashes
 			$str = addslashes( $str );
-		}
+		// }
 
 		//return escaped string
 		return $str;

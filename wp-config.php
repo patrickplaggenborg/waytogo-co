@@ -78,7 +78,14 @@ define('NONCE_SALT',       'iutL8OrIwlPS1rzRaPtJ9XFDkZnPobIJCsnnJ17t6XqoUidy2DIh
 define('FS_METHOD','direct');
 define('FS_CHMOD_DIR',0755);
 define('FS_CHMOD_FILE',0644);
-define('WP_TEMP_DIR',dirname(__FILE__).'/wp-content/uploads');
+
+/**
+ * Define Upload Paths
+ * Forces WordPress to look for uploads in the correct Docker path,
+ * overriding any legacy paths from the database import.
+ */
+define('UPLOADS', 'wp-content/uploads');
+define('WP_TEMP_DIR', '/var/www/html/wp-content/uploads');
 
 /**
  * Turn off automatic updates since these are managed externally by Installatron.
