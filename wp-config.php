@@ -168,6 +168,14 @@ if (WP_DEBUG || WP_DEBUG_LOG) {
 	}, E_ALL);
 }
 
+/**
+ * Handle SSL behind reverse proxy (Coolify/Traefik)
+ * Prevents "Too Many Redirects" loop by detecting the X-Forwarded-Proto header
+ */
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
+    $_SERVER['HTTPS'] = 'on';
+}
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
