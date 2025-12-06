@@ -141,6 +141,9 @@ define('SAVEQUERIES', filter_var(getenv('WORDPRESS_SAVEQUERIES'), FILTER_VALIDAT
  * This runs before WordPress loads, so we can catch early errors too
  */
 if (WP_DEBUG || WP_DEBUG_LOG) {
+    // Suppress deprecation warnings to reduce log noise (PHP 8.2+)
+    error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
 	set_error_handler(function($errno, $errstr, $errfile, $errline) {
 		// Log to stderr (Coolify logs)
 		$error_types = array(
