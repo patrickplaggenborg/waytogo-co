@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM wordpress:php7.4-apache
 
 # Set working directory
 WORKDIR /var/www/html
@@ -15,8 +15,7 @@ RUN chown -R www-data:www-data /var/www/html && \
 # Ensure wp-content/uploads is writable (will be overridden by volume mount in production)
 RUN chmod -R 775 /var/www/html/wp-content/uploads
 
-RUN docker-php-ext-install mysqli
-RUN a2enmod rewrite
-
 # Expose port 80
 EXPOSE 80
+
+
