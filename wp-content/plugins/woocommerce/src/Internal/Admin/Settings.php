@@ -6,9 +6,12 @@
 namespace Automattic\WooCommerce\Internal\Admin;
 
 use Automattic\WooCommerce\Admin\API\Plugins;
-use Automattic\WooCommerce\Admin\PageController;
 use Automattic\WooCommerce\Admin\API\Reports\Orders\DataStore as OrdersDataStore;
+use Automattic\WooCommerce\Admin\Features\Features;
+use Automattic\WooCommerce\Admin\PageController;
 use Automattic\WooCommerce\Admin\PluginsHelper;
+use Automattic\WooCommerce\Utilities\FeaturesUtil;
+use Automattic\WooCommerce\Utilities\OrderUtil;
 use WC_Marketplace_Suggestions;
 
 /**
@@ -76,7 +79,7 @@ class Settings {
 	}
 
 	/**
-	 * Return an object defining the currecy options for the site's current currency
+	 * Return an object defining the currency options for the site's current currency
 	 *
 	 * @return  array  Settings for the current currency {
 	 *     Array of settings.
@@ -89,7 +92,11 @@ class Settings {
 	public static function get_currency_settings() {
 		$code = get_woocommerce_currency();
 
-		//phpcs:ignore
+		/**
+		 * The wc_currency_settings hook
+		 *
+		 * @since 6.5.0
+		 */
 		return apply_filters(
 			'wc_currency_settings',
 			array(
@@ -105,7 +112,7 @@ class Settings {
 	}
 
 	/**
-	 * Hooks extra neccessary data into the component settings array already set in WooCommerce core.
+	 * Hooks extra necessary data into the component settings array already set in WooCommerce core.
 	 *
 	 * @param array $settings Array of component settings.
 	 * @return array Array of component settings.
@@ -136,9 +143,7 @@ class Settings {
 
 		//phpcs:ignore
 		$preload_data_endpoints = apply_filters( 'woocommerce_component_settings_preload_endpoints', array() );
-		if ( class_exists( 'Jetpack' ) ) {
-			$preload_data_endpoints['jetpackStatus'] = '/jetpack/v4/connection';
-		}
+		$preload_data_endpoints['jetpackStatus'] = '/jetpack/v4/connection';
 		if ( ! empty( $preload_data_endpoints ) ) {
 			$preload_data = array_reduce(
 				array_values( $preload_data_endpoints ),
@@ -170,13 +175,7 @@ class Settings {
 			}
 		}
 
-		$user_controller = new \WP_REST_Users_Controller();
-		$request         = new \WP_REST_Request();
-		$request->set_query_params( array( 'context' => 'edit' ) );
-		$user_response     = $user_controller->get_current_item( $request );
-		$current_user_data = is_wp_error( $user_response ) ? (object) array() : $user_response->get_data();
-
-		$settings['currentUserData']      = $current_user_data;
+		$settings['currentUserData']      = WCAdminUser::get_user_data();
 		$settings['reviewsEnabled']       = get_option( 'woocommerce_enable_reviews' );
 		$settings['manageStock']          = get_option( 'woocommerce_manage_stock' );
 		$settings['commentModeration']    = get_option( 'comment_moderation' );
@@ -200,13 +199,22 @@ class Settings {
 			'installedPlugins' => PluginsHelper::get_installed_plugin_slugs(),
 			'activePlugins'    => Plugins::get_active_plugins(),
 		);
+
+		// DO NOT use outside of core, these can be removed without deprecation.
+		$settings['__experimentalFlags'] = array();
+
 		// Plugins that depend on changing the translation work on the server but not the client -
 		// WooCommerce Branding is an example of this - so pass through the translation of
 		// 'WooCommerce' to wcSettings.
 		$settings['woocommerceTranslation'] = __( 'WooCommerce', 'woocommerce' );
-		// We may have synced orders with a now-unregistered status.
-		// E.g An extension that added statuses is now inactive or removed.
-		$settings['unregisteredOrderStatuses'] = $this->get_unregistered_order_statuses();
+
+		if ( PageController::is_admin_page() && Features::is_enabled( 'analytics' ) ) {
+			// We may have synced orders with a now-unregistered status.
+			// E.g. an extension that added statuses is now inactive or removed.
+			$settings['unregisteredOrderStatuses'] = $this->get_unregistered_order_statuses();
+			$settings['usesNewFullRefundData']     = OrderUtil::uses_new_full_refund_data();
+		}
+
 		// The separator used for attributes found in Variation titles.
 		//phpcs:ignore
 		$settings['variationTitleAttributesSeparator'] = apply_filters( 'woocommerce_product_variation_title_attributes_separator', ' - ', new \WC_Product() );
@@ -232,8 +240,48 @@ class Settings {
 		$settings['allowMarketplaceSuggestions']      = WC_Marketplace_Suggestions::allow_suggestions();
 		$settings['connectNonce']                     = wp_create_nonce( 'connect' );
 		$settings['wcpay_welcome_page_connect_nonce'] = wp_create_nonce( 'wcpay-connect' );
+		$settings['email_preview_nonce']              = wp_create_nonce( 'email-preview-nonce' );
+		$settings['email_listing_nonce']              = wp_create_nonce( 'email-listing-nonce' );
+		$settings['wc_helper_nonces']                 = array(
+			'refresh' => wp_create_nonce( 'refresh' ),
+		);
+
+		$settings['features'] = $this->get_features();
+
+		$has_gutenberg     = is_plugin_active( 'gutenberg/gutenberg.php' );
+		$gutenberg_version = '';
+		if ( $has_gutenberg ) {
+			if ( defined( 'GUTENBERG_VERSION' ) ) {
+				$gutenberg_version = GUTENBERG_VERSION;
+			}
+
+			if ( ! $gutenberg_version ) {
+				$gutenberg_data    = get_plugin_data( WP_PLUGIN_DIR . '/gutenberg/gutenberg.php' );
+				$gutenberg_version = $gutenberg_data['Version'];
+			}
+		}
+		$settings['gutenberg_version'] = $has_gutenberg ? $gutenberg_version : 0;
 
 		return $settings;
+	}
+
+	/**
+	 * Removes non-necessary feature properties for the client side.
+	 *
+	 * @return array
+	 */
+	public function get_features() {
+		$features     = FeaturesUtil::get_features( true, true );
+		$new_features = array();
+
+		foreach ( array_keys( $features ) as $feature_id ) {
+			$new_features[ $feature_id ] = array(
+				'is_enabled'      => $features[ $feature_id ]['is_enabled'],
+				'is_experimental' => $features[ $feature_id ]['is_experimental'] ?? false,
+			);
+		}
+
+		return $new_features;
 	}
 
 	/**
@@ -287,6 +335,18 @@ class Settings {
 			'description' => __( 'Default Date Range', 'woocommerce' ),
 			'default'     => 'period=month&compare=previous_year',
 			'type'        => 'text',
+		);
+		$settings[] = array(
+			'id'          => 'woocommerce_date_type',
+			'option_key'  => 'woocommerce_date_type',
+			'label'       => __( 'Date Type', 'woocommerce' ),
+			'description' => __( 'Database date field considered for Revenue and Orders reports', 'woocommerce' ),
+			'type'        => 'select',
+			'options'     => array(
+				'date_created'   => 'date_created',
+				'date_paid'      => 'date_paid',
+				'date_completed' => 'date_completed',
+			),
 		);
 		return $settings;
 	}

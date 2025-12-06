@@ -2,16 +2,16 @@
 # This file is distributed under the same license as the Plugins - Duplicate Page - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-09 14:49:01+0000\n"
+"PO-Revision-Date: 2025-08-31 11:06:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"X-Generator: GlotPress/4.0.2\n"
 "Language: nl\n"
 "Project-Id-Version: Plugins - Duplicate Page - Development (trunk)\n"
 
-#: duplicatepage.php:132
+#: duplicatepage.php:131
 msgid "Unauthorized Access."
 msgstr "Onbevoegde toegang."
 
@@ -23,47 +23,47 @@ msgstr "Wijzigingen opslaan"
 msgid "<div class=\"saving-txt\"><strong>Saving Please wait...</strong></div>"
 msgstr "<div class=\"saving-txt\"><strong>Opslaan Even geduld...</strong></div>"
 
-#: duplicatepage.php:345
+#: duplicatepage.php:357
 msgid "Never"
 msgstr "Nooit"
 
-#: duplicatepage.php:345
+#: duplicatepage.php:357
 msgid "Not interested"
 msgstr "Niet geïnteresseerd"
 
-#: duplicatepage.php:345
+#: duplicatepage.php:357
 msgid "Rate Us"
 msgstr "Waardeer ons"
 
-#: duplicatepage.php:345
+#: duplicatepage.php:357
 msgid "Rate us now"
 msgstr "Beoordeel ons nu"
 
-#: duplicatepage.php:345
+#: duplicatepage.php:357
 msgid "Later"
 msgstr "Later"
 
-#: duplicatepage.php:345
+#: duplicatepage.php:357
 msgid "Remind me later"
 msgstr "Herinner me er later aan"
 
-#: duplicatepage.php:345
+#: duplicatepage.php:357
 msgid "We love and care about you. Our team is putting maximum efforts to provide you the best functionalities. It would be highly appreciable if you could spend a couple of seconds to give a Nice Review to the plugin to appreciate our efforts. So we can work hard to provide new features regularly :)"
 msgstr "We houden van je en geven om je. Ons team doet er maximale inspanningen voor om je de beste functionaliteiten te bieden. Het zou zeer merkbaar zijn als je een paar seconden zou kunnen besteden om een Nice Review aan de plugin te geven om onze inspanningen te waarderen. Zodat we hard kunnen werken om regelmatig nieuwe functies te bieden :)"
 
-#: duplicatepage.php:345
+#: duplicatepage.php:357
 msgid "close"
 msgstr "sluiten"
 
-#: duplicatepage.php:138
+#: duplicatepage.php:136
 msgid "Security check issue, Please try again."
 msgstr "Probleem met de veiligheidscontrole, probeer het opnieuw."
 
-#: duplicatepage.php:237
+#: duplicatepage.php:244
 msgid "Error! Post creation failed, could not find original post: "
 msgstr "Fout! Het maken van berichten is mislukt, kon het oorspronkelijke bericht niet vinden: "
 
-#: duplicatepage.php:157
+#: duplicatepage.php:155
 msgid "No post to duplicate has been supplied!"
 msgstr "Er is geen bericht om te dupliceren geleverd!"
 
@@ -75,7 +75,7 @@ msgstr "Doneer nu"
 msgid "All Editors"
 msgstr "Alle editors"
 
-#: duplicatepage.php:249 duplicatepage.php:265 duplicatepage.php:289
+#: duplicatepage.php:261 duplicatepage.php:277 duplicatepage.php:301
 msgid "Duplicate this as "
 msgstr "Dupliceer dit als "
 
@@ -95,13 +95,13 @@ msgstr "Klassieke Editor"
 msgid "Choose Editor"
 msgstr "Kies editor"
 
-#: duplicatepage.php:316
+#: duplicatepage.php:328
 msgid "Duplicate This as "
 msgstr "Dupliceer dit als "
 
 #: inc/admin-settings.php:63
 msgid "Pending"
-msgstr "In wachtrij"
+msgstr "In afwachting"
 
 #: inc/admin-settings.php:62
 msgid "Private"
@@ -116,27 +116,26 @@ msgid "Draft"
 msgstr "Concept"
 
 #. Author URI of the plugin
+#: duplicatepage.php
 msgid "https://profiles.wordpress.org/mndpsingh287/"
 msgstr "https://profiles.wordpress.org/mndpsingh287/"
 
 #. Author of the plugin
+#: duplicatepage.php
 msgid "mndpsingh287"
 msgstr "mndpsingh287"
 
 #. Description of the plugin
+#: duplicatepage.php
 msgid "Duplicate Posts, Pages and Custom Posts using single click."
 msgstr "Dupliceer berichten, pagina's en aangepaste berichten met een enkele klik."
 
-#. Plugin URI of the plugin
-msgid "https://wordpress.org/plugins/duplicate-page/"
-msgstr "https://wordpress.org/plugins/duplicate-page/"
-
-#: duplicatepage.php:249 duplicatepage.php:265 duplicatepage.php:288
+#: duplicatepage.php:261 duplicatepage.php:277 duplicatepage.php:300
 msgid "Duplicate This"
 msgstr "Dupliceer dit"
 
 #. Plugin Name of the plugin
-#: duplicatepage.php:91 duplicatepage.php:345
+#: duplicatepage.php duplicatepage.php:91 duplicatepage.php:357
 msgid "Duplicate Page"
 msgstr "Duplicate Page"
 
@@ -150,11 +149,11 @@ msgstr "Instellingen"
 
 #: inc/admin-settings.php:81
 msgid "Add a suffix for duplicate or clone post as Copy, Clone etc. It will show after title."
-msgstr "Voeg een suffix voor duplicaat of dupliceer het bericht als kopie enz. Het zal worden getoond na de titel."
+msgstr "Voeg een achtervoegsel toe voor dubbele of gekloonde berichten als kopiëren, klonen enz. Het zal na de titel worden weergegeven."
 
 #: inc/admin-settings.php:78
 msgid "Duplicate Post Suffix"
-msgstr "Dupliceer bericht suffix"
+msgstr "Dupliceer bericht achtervoegsel"
 
 #: inc/admin-settings.php:74
 msgid "Please select any post redirection, redirect you to selected after click on duplicate this link.<strong> Default: </strong>To All Posts List"
@@ -170,7 +169,7 @@ msgstr "Naar alle bericht lijsten"
 
 #: inc/admin-settings.php:69
 msgid "Redirect to after click on <strong>Duplicate This Link</strong>"
-msgstr "Doorverwijzen naar na het klikken op <strong>Dupliceer deze link</strong>"
+msgstr "Omleiden naar na het klikken op <strong>Dupliceer deze link</strong>"
 
 #: inc/admin-settings.php:65
 msgid "Please select any post status you want to assign for duplicate post.<strong> Default: </strong> Draft"

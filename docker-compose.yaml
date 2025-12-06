@@ -1,0 +1,57 @@
+services:
+    qwg08ksgoo0wssgkos4sowkk-195228412508:
+        image: 'qwg08ksgoo0wssgkos4sowkk:a7da8fbf7ed99d9c15b8c68b3172f2080c0ec7a9'
+        container_name: qwg08ksgoo0wssgkos4sowkk-195228412508
+        restart: unless-stopped
+        expose:
+            - '80'
+        networks:
+            coolify:
+                aliases:
+                    - qwg08ksgoo0wssgkos4sowkk-195228412508
+        mem_limit: '0'
+        memswap_limit: '0'
+        mem_swappiness: 60
+        mem_reservation: '0'
+        cpus: 0.0
+        cpu_shares: 1024
+        env_file:
+            - .env
+        labels:
+            - traefik.enable=true
+            - traefik.http.middlewares.gzip.compress=true
+            - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+            - traefik.http.routers.http-0-qwg08ksgoo0wssgkos4sowkk.entryPoints=http
+            - traefik.http.routers.http-0-qwg08ksgoo0wssgkos4sowkk.middlewares=redirect-to-https
+            - 'traefik.http.routers.http-0-qwg08ksgoo0wssgkos4sowkk.rule=Host(`waytogo.co`) && PathPrefix(`/`)'
+            - traefik.http.routers.http-0-qwg08ksgoo0wssgkos4sowkk.service=http-0-qwg08ksgoo0wssgkos4sowkk
+            - traefik.http.routers.https-0-qwg08ksgoo0wssgkos4sowkk.entryPoints=https
+            - traefik.http.routers.https-0-qwg08ksgoo0wssgkos4sowkk.middlewares=gzip
+            - 'traefik.http.routers.https-0-qwg08ksgoo0wssgkos4sowkk.rule=Host(`waytogo.co`) && PathPrefix(`/`)'
+            - traefik.http.routers.https-0-qwg08ksgoo0wssgkos4sowkk.service=https-0-qwg08ksgoo0wssgkos4sowkk
+            - traefik.http.routers.https-0-qwg08ksgoo0wssgkos4sowkk.tls.certresolver=letsencrypt
+            - traefik.http.routers.https-0-qwg08ksgoo0wssgkos4sowkk.tls=true
+            - traefik.http.services.http-0-qwg08ksgoo0wssgkos4sowkk.loadbalancer.server.port=80
+            - traefik.http.services.https-0-qwg08ksgoo0wssgkos4sowkk.loadbalancer.server.port=80
+            - 'caddy_0.encode=zstd gzip'
+            - 'caddy_0.handle_path.0_reverse_proxy={{upstreams 80}}'
+            - 'caddy_0.handle_path=/*'
+            - caddy_0.header=-Server
+            - 'caddy_0.try_files={path} /index.html /index.php'
+            - 'caddy_0=https://waytogo.co'
+            - caddy_ingress_network=coolify
+            - coolify.managed=true
+            - coolify.version=4.0.0-beta.452
+            - coolify.applicationId=10
+            - coolify.type=application
+            - coolify.name=qwg08ksgoo0wssgkos4sowkk
+            - coolify.resourceName=waytogo-co
+            - coolify.projectName=wordpress
+            - coolify.serviceName=waytogo-co
+            - coolify.environmentName=production
+            - coolify.pullRequestId=0
+networks:
+    coolify:
+        external: true
+        name: coolify
+        attachable: true

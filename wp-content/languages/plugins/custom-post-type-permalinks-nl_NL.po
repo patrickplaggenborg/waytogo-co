@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - Custom Post Type Permalinks - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-23 13:17:04+0000\n"
+"PO-Revision-Date: 2023-11-13 12:45:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.0-alpha.11\n"
 "Language: nl\n"
 "Project-Id-Version: Plugins - Custom Post Type Permalinks - Stable (latest release)\n"
 
@@ -56,7 +56,7 @@ msgstr "Custom Post Type Permalinks"
 
 #: CPTP/Util.php:166
 msgid "View all posts in %s"
-msgstr "Laat alles van %s zien"
+msgstr "Bekijk alle berichten in %s"
 
 #: CPTP/Module/Admin.php:193
 msgid "There are cases when the template to be loaded is changed."
@@ -64,7 +64,7 @@ msgstr "Er zijn gevallen waarin de te laden template wordt gewijzigd."
 
 #: CPTP/Module/Admin.php:192
 msgid "Custom taxonomy archive also works as post type archive. "
-msgstr "Aangepaste taxonomie archief werkt ook als berichttype archief."
+msgstr "Aangepaste taxonomie archief werkt ook als berichttype archief. "
 
 #. translators: %s site url
 #: CPTP/Module/Admin.php:183
@@ -85,7 +85,7 @@ msgstr "Voeg een <code> bericht_type </code> -query toe voor een aangepast taxon
 
 #: CPTP/Module/Admin.php:57
 msgid "Use custom permalink of custom taxonomy archive."
-msgstr "Gebruik een aangepaste permalink van een aangepast taxonomie-archief."
+msgstr "Gebruik een aangepaste permalink van een aangepast taxonomie archief."
 
 #: CPTP/Module/Admin.php:33
 msgid "Permalink Settings for Custom Post Types"

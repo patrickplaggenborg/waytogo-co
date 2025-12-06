@@ -1,8 +1,14 @@
 <?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 0 );
+}
+
 /**
  * GET  /sites/%s/themes/mine => current theme
  * POST /sites/%s/themes/mine => switch theme
+ *
+ * @phan-constructor-used-for-side-effects
  */
 class Jetpack_JSON_API_Themes_Active_Endpoint extends Jetpack_JSON_API_Themes_Endpoint {
 
@@ -45,6 +51,18 @@ class Jetpack_JSON_API_Themes_Active_Endpoint extends Jetpack_JSON_API_Themes_En
 		if ( ! $theme_slug ) {
 			return new WP_Error( 'theme_not_found', __( 'Theme is empty.', 'jetpack' ), 404 );
 		}
+
+		/**
+		 * Trigger action before the switch theme happens.
+		 *
+		 * @module json-api
+		 *
+		 * @since 11.1
+		 *
+		 * @param string $theme_slug Directory name for the theme.
+		 * @param mixed  $args       POST body data, including info about the theme we must switch to.
+		 */
+		do_action( 'jetpack_pre_switch_theme', $theme_slug, $args );
 
 		$theme = wp_get_theme( $theme_slug );
 
