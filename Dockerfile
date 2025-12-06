@@ -1,4 +1,4 @@
-FROM wordpress:php8.2-apache
+FROM wordpress:php8.5-apache
 
 # Set working directory
 WORKDIR /var/www/html
